@@ -1,0 +1,11 @@
+{
+  "name": "planets",
+  "version": "1.0.0",
+  "description": "gsap project based on planent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "benard odhiambo",
+  "license": "ISC"
+}
