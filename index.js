@@ -25,19 +25,18 @@ const tr = gsap.timeline({
 //   yoyo: true,
 // });
 
+//mercury details animations
 const tz = gsap.timeline({
   scrollTrigger: {
-    trigger: ".details",
+    trigger: ".mer",
     start: "top 60%",
-    end: "bottom top",
+    end: "+=300%",
     // markers: true,
     scrub: false,
     // pin: ".general",
     toggleActions: "play none none reverse",
-    onEnterBack:
-      () =>
-      ({ progress, direction, isActive }) =>
-        console.log(progress, direction, isActive),
+    onEnter: () => merc_img.pause(),
+    onLeaveBack: () => merc_img.resume(),
   },
 });
 tz.to(".merc_img", {
@@ -48,20 +47,102 @@ tz.to(".merc_img", {
   },
   ease: "none",
 });
-tz.add(() => {
-  merc_img.pause();
-});
+// tz.add(() => {
+//   merc_img.pause();
+// });
 
 tz.to(" .venus_img,.earth_img,.mars_img", {
   y: -400,
   duration: 0.2,
 });
+//venus details animations
+const tv = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".ven",
+    start: "top 60%",
+    end: "+=300%",
+    // markers: true,
+    scrub: false,
+    // pin: ".general",
+    toggleActions: "play none none reverse",
+    onEnter: () => venus_img.pause(),
+    onLeaveBack: () => venus_img.resume(),
+  },
+});
+tv.to(".venus_img", {
+  css: {
+    top: "800px",
+    left: "100px",
+    height: "380px",
+  },
+  ease: "none",
+});
+
+tv.to(" .merc_img,.earth_img,.mars_img", {
+  y: -900,
+  duration: 0.2,
+});
+//earth details animations
+const te = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".eat",
+    start: "top 60%",
+    end: "+=300%",
+    // markers: true,
+    scrub: false,
+    // pin: ".general",
+    toggleActions: "play none none reverse",
+    onEnter: () => earth_img.pause(),
+    onLeaveBack: () => earth_img.resume(),
+  },
+});
+te.to(".earth_img", {
+  css: {
+    top: "1700px",
+    left: "150px",
+    height: "440px",
+  },
+  ease: "none",
+});
+
+te.to(" .merc_img,.venus_img,.mars_img", {
+  y: -1300,
+  duration: 0.2,
+});
+//mars details animations
+const tm = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".mar",
+    start: "top 60%",
+    end: "+=300%",
+    // markers: true,
+    scrub: false,
+    // pin: ".general",
+    toggleActions: "play none none reverse",
+    onEnter: () => mars_img.pause(),
+    onLeaveBack: () => mars_img.resume(),
+  },
+});
+tm.to(".mars_img", {
+  css: {
+    top: "2600px",
+    left: "250px",
+    height: "380px",
+  },
+  ease: "none",
+});
+
+tm.to(" .merc_img,.earth_img,.venus_img", {
+  y: -1900,
+  duration: 0.2,
+});
+//end
 
 const tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".general",
     start: "top top",
-    end: "bottom top",
+    end: "bottom 60%",
     // markers: true,
     scrub: false,
     // pin: ".general",
@@ -159,7 +240,7 @@ gsap.fromTo(
     // repeat: -1,
   }
 );
-gsap.fromTo(
+let venus_img = gsap.fromTo(
   ".venus_img",
   {
     x: 1100,
@@ -186,7 +267,7 @@ gsap.fromTo(
     // repeat: -1,
   }
 );
-gsap.fromTo(
+let earth_img = gsap.fromTo(
   ".earth_img",
   {
     x: 1400,
@@ -213,7 +294,7 @@ gsap.fromTo(
     // repeat: -1,
   }
 );
-gsap.fromTo(
+let mars_img = gsap.fromTo(
   ".mars_img",
   {
     x: 1700,
